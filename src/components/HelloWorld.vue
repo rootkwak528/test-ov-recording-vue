@@ -16,9 +16,9 @@ export default {
   methods: {
     hello () {
       this.httpRequest(
-        'POST',
+        'GET',
         'https://i5a204.p.ssafy.io:5000/api/get-token', {
-          sessionName: 'hello from hogeun'
+          sessionName: 'hello'
         },
         'Request of TOKEN gone WRONG:',
         res => {
