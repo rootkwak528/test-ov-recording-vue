@@ -17,7 +17,7 @@ export default {
     hello () {
       this.httpRequest(
         'POST',
-        'http://localhost:5000/api/get-token', {
+        'https://localhost:5000/api/get-token', {
           sessionName: 'hello from hogeun'
         },
         'Request of TOKEN gone WRONG:',
