@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button @click="hello">hello</button>
+    <button @click="hello">hello4</button>
   </div>
 </template>
 
@@ -10,41 +10,27 @@ import axios from 'axios'
 
 export default {
   name: 'HelloWorld',
+
   props: {
     msg: String
   },
+
   methods: {
     hello () {
-      this.httpRequest(
-        'GET',
-        'https://i5a204.p.ssafy.io:5000/api/get-token', {
-          sessionName: 'hello'
-        },
-        'Request of TOKEN gone WRONG:',
-        res => {
-          const token = res[0]; // Get token from response
-          console.warn('Request of TOKEN gone WELL (TOKEN:' + token + ')');
-        }
-      );
-    },
-
-    httpRequest (method, url, body, errorMsg, callback) {
       axios({
-        method,
-        url,
-        headers: {'Content-type': 'application/json'},
-        data: body
+        method: 'post',
+        url: 'https://i5a204.p.ssafy.io:5000/api/get-token',
+        // headers: {'Content-type': 'application/json'},
+        data: {"sessionName": "asd"}
       })
         .then(res => {
-          callback(res)
           console.log(res)
         })
         .catch(err => {
-          console.warn(errorMsg + ' (' + err.status + ')');
-          console.warn(err.message);
+          console.warn(err);
         })
     }
-  }
+  },
 }
 </script>
 
